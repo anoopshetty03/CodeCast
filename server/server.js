@@ -2,8 +2,10 @@ import express from 'express';
 import http from 'http';
 import { Server } from 'socket.io';
 import cors from 'cors';
-
 const app = express();
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 app.use(cors())
 
@@ -124,7 +126,7 @@ io.on('connection', function (socket) {
   })
 })
 
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT
 
 server.listen(PORT, function () {
   console.log(`listening on port : ${PORT}`)
